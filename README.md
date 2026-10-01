@@ -39,11 +39,19 @@ python3 scripts/aivep.py workflow.py --project projects/my-video init
 
 動画案件・npm依存・Remotion Studioは `projects/<案件名>/` に作成します。素材は `media/`、出力は `output/` に置けます。すべてGit対象外です。完成時は製品の手順に従い、Studio確認と書き出し後の検査、`workflow.py validate` を実行してください。
 
+### このリポジトリの編集品質ルール
+
+制作時にはAGENTS.mdから [video-edit-quality](skills/video-edit-quality/SKILL.md) を読みます。製品の登録スキルに併用する、このリポジトリ独自のスキルです。追加インストールやホーム配下への登録は不要です。
+
+[編集仕様](docs/video-editing-spec.md) に、字幕・音声カット・画面接続の既定値、初稿前の独立レビュー、指摘と同類の問題の全編検索、修正の影響範囲と書き出し後の検査をまとめています。本人の既存の指定を最初から反映し、同じ承認を聞き直さず、確認は判断が必要な箇所に絞ります。これらはエージェントが実行する手順であり、文書の追加だけで自動検査やhookが実装されたわけではありません。
+
+改善の根拠は [制作の振り返り](docs/video-editing-retrospective.md)、スキルの判断を検証する依頼例は [運用シナリオ](skills/video-edit-quality/references/scenarios.md) を参照してください。
+
 ## ファイル配置
 
 | 場所 | 用途 | Git管理 |
 | --- | --- | --- |
-| `scripts/`、`tests/`、ドキュメント | セットアップ・実行・検査 | 対象 |
+| `scripts/`、`tests/`、`docs/`、`skills/video-edit-quality/` | セットアップ・実行・検査・独自の編集ルール | 対象 |
 | `.local/` | 検証済み配布物、Python 3.12、venv、キャッシュ | 対象外 |
 | `.ai-video-edit-pro/` | 製品正本、認証済み記録、プロファイル、バックアップ | 対象外 |
 | `.agents/skills/`、`.codex/skills/` | プロジェクト用スキル登録 | 対象外 |
